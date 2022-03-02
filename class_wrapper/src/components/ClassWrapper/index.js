@@ -41,8 +41,11 @@ function ClassWrapper(){
     }
 
     function onDisbanStudent(_uuid){
-        let index = studentList.findIndex(function(o){return o.uuid == _uuid;})
-        if (index !== -1){studentList.splice(index,1)};
+        
+        const newStudents = [...studentList];
+        let index = newStudents.findIndex(function(o){return o.uuid == _uuid;})
+        if (index !== -1){newStudents.splice(index,1)};
+        setStudentList(newStudents);
     }
 
     return(
