@@ -38,7 +38,8 @@ function ClassWrapper(){
     }
 
     function onDisbanStudent(_uuid){
-        
+        let index = studentList.findIndex(function(o){return o.uuid == _uuid;})
+        if (index !== -1){studentList.splice(index,1)};
     }
 
     return(
@@ -67,7 +68,7 @@ function Student(props){
             <td>{props.uuid}</td>
             <td>{props.name}</td>
             <td>{props.points}</td>
-            <td><button onClick={props.action}>Delete</button>}</td>
+            <td><button onClick={props.action}>Delete</button></td>
         </tr>
     );
 }
