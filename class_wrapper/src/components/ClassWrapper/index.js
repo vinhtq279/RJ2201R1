@@ -1,0 +1,75 @@
+import { useState } from 'react';
+import {v4 as uuid} from 'uuid';
+import './indec.css';
+
+const students = [
+    {
+      uuid: uuid(),
+      fullName: 'Nguyen Van A',
+      points: 10
+    },
+    {
+      uuid: uuid(),
+      fullName: 'Le Van B',
+      points: 8
+    },
+    {
+      uuid: uuid(),
+      fullName: 'Pham Thi C',
+      points: 7
+    },
+    {
+      uuid: uuid(),
+      fullName: 'Tran Van D',
+      points: 6
+    },
+    {
+      uuid: uuid(),
+      fullName: 'Ta Thi Lang',
+      points: 1
+    },
+  ];
+
+function ClassWrapper(){
+    const [studentList, setStudentList] = useState(students);
+
+    function onAddNewStudent(){
+
+    }
+
+    function onDisbanStudent(_uuid){
+        
+    }
+
+    return(
+        <table>
+            <thead>
+                <tr>
+
+                </tr>
+                <th>UUID</th>
+                <th>Fullname</th>
+                <th>Points</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                {studentList.map(
+                    (value) => <Student key={value.uuid} uuid={value.uuid} name={value.fullName} points={value.points} action={onDisbanStudent} />
+                )}
+            </tbody>
+        </table>
+    );
+}
+
+function Student(props){
+    return(
+        <tr>
+            <td>{props.uuid}</td>
+            <td>{props.name}</td>
+            <td>{props.points}</td>
+            <td><button onClick={props.action}>Delete</button>}</td>
+        </tr>
+    );
+}
+
+export default ClassWrapper;
