@@ -41,7 +41,6 @@ function ClassWrapper(){
     }
 
     function onDisbanStudent(_uuid){
-        
         const newStudents = [...studentList];
         let index = newStudents.findIndex(function(o){return o.uuid == _uuid;})
         if (index !== -1){newStudents.splice(index,1)};
@@ -76,7 +75,7 @@ function Student(props){
             <td>{props.uuid}</td>
             <td>{props.name}</td>
             <td>{props.points}</td>
-            <td><button onClick={props.action}>Delete</button></td>
+            <td><button onClick={() => props.action(props.uuid)}>Delete</button></td>
         </tr>
     );
 }
