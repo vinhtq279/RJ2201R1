@@ -34,7 +34,10 @@ function ClassWrapper(){
     const [studentList, setStudentList] = useState(students);
 
     function onAddNewStudent(){
-
+      const newStudent = { uuid: uuid(), fullName: 'undefined', points: 0 };
+      const newStudents = [...studentList];
+      newStudents.push(newStudent);
+      setStudentList(newStudents);
     }
 
     function onDisbanStudent(_uuid){
