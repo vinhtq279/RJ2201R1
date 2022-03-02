@@ -43,15 +43,15 @@ function ClassWrapper(){
     }
 
     return(
+      <>
         <table>
             <thead>
                 <tr>
-
+                  <th>UUID</th>
+                  <th>Fullname</th>
+                  <th>Points</th>
+                  <th>Action</th>
                 </tr>
-                <th>UUID</th>
-                <th>Fullname</th>
-                <th>Points</th>
-                <th>Action</th>
             </thead>
             <tbody>
                 {studentList.map(
@@ -59,6 +59,8 @@ function ClassWrapper(){
                 )}
             </tbody>
         </table>
+        <button onClick={onAddNewStudent}>Add Student</button>
+        </>
     );
 }
 
