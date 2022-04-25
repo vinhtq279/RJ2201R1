@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
+import List from '../List/List';
 
 function Test(){
-    const Toggler = ({ toggle, onToggle }) => {
-        React.useEffect(() => {
-          console.log('I run on every render: mount + update.');
-        });
-    };
-    return (
+
+    const [_filter, setFilter] = useState("")
+    const changeFilter = (e) => {
+        setFilter(e.target.value);
+    }
+    const submitFilter = () => {
+        console.log(_filter);
+    }
+
+    return(
         <div>
-        <button type="button" onClick={onToggle}>
-            Toggle
-        </button>
-    
-        {toggle && <div>Hello React</div>}
+            <form onSubmit={submitFilter}>
+                <input type="text" onChange={changeFilter} />
+                <List filter={_filter} /> 
+                <input type="submit" value="Submit" />
+            </form>
         </div>
     );
 }
